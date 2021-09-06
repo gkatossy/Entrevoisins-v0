@@ -63,6 +63,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 switch (mType){
                     case NEIGHBOURS:
                         EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
+                        EventBus.getDefault().post(new DeleteFavoriteNeighbourEvent(neighbour));
                         break;
                     case FAVORITE:
                         EventBus.getDefault().post(new DeleteFavoriteNeighbourEvent(neighbour));
@@ -110,6 +111,5 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
      */
     public interface onItemListener{
         void onItemClick (int position);
-
     }
 }

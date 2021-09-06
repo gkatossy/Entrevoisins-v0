@@ -46,9 +46,12 @@ public class NeighbourServiceTest {
 
     @Test
     public void getNeighbourFavorite () {
-        List<Neighbour> mFavoriteNeighbour = service.getNeighbour();
-        List<Neighbour> expectedFavoriteNeighbour = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
-        assertThat(mFavoriteNeighbour, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedFavoriteNeighbour.toArray()));
+        Neighbour neighbour = new Neighbour(1, "Caroline", "https://i.pravatar.cc/350?u=a042581f4e29026704d", "lyon ; 5km",
+                "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
+        service.addFavorite(neighbour);
+        List<Neighbour> mFavoriteNeighbour = service.getFavorite();
+        Neighbour  expectedFavoriteNeighbour = service.getFavorite().get(0);
+        assertThat(mFavoriteNeighbour, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedFavoriteNeighbour));
     }
 
     @Test

@@ -70,7 +70,7 @@ public class FavoriteNeighbourFragment extends Fragment implements MyNeighbourRe
     }
 
     @Override
-    public  void onResume() {
+    public void onResume() {
         super.onResume();
         initList();
     }
@@ -91,7 +91,7 @@ public class FavoriteNeighbourFragment extends Fragment implements MyNeighbourRe
 
 
     @Subscribe
-    public  void onDeleteFavoriteNeighbour(DeleteFavoriteNeighbourEvent event) {
+    public void onDeleteFavoriteNeighbour(DeleteFavoriteNeighbourEvent event) {
         mApiService.deleteFavorite(event.neighbour);
         initList();
     }
